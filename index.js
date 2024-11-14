@@ -9,16 +9,13 @@ const books = [
 ];
 
 // Route
+
 app.get("/", (req, res) => {
-  
-  res.send("home/books to see book");
-});
-app.get("/books", (req, res) => {
   res.json(books);
 });
 
 //  book by ID
-app.get("/books/:id", (req, res) => {
+app.get("/:id", (req, res) => {
   const bookId = parseInt(req.params.id, 10);
   const book = books.find((b) => b.id === bookId);
   if (book) {
